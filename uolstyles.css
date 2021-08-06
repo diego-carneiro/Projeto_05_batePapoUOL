@@ -4,20 +4,7 @@
     flex-wrap: wrap;
     background-color: #E5E5E5;
     width: 100vw;
-    height: 100vh;   
-}
-.barraLateral{
-    background-color: crimson;
-    width: 0px;
-    height: 100vh;
-    transition: 0.7 linear;
-}
-.barraLateral:hover{
-    width: 70vw;
-}
-*{
-    box-sizing: border-box;
-    font-family: Roboto;
+    height: 100vh;  
 }
 
 /*Topo da Página*/
@@ -44,9 +31,10 @@
 /*Corpo da Página*/
 .mensagens{
     width: 100vw;
-    height: 40px;
     padding: 12px;
+    margin-bottom: 5px;
 }
+
 
 /*Barra de Texto*/
 .textBar{
@@ -57,7 +45,7 @@
     position: fixed;
     width: 100vw;
     height: 80px;
-    bottom: 0; 
+    bottom: 0;
 }
 .textBox{
     margin-left: 20px;
@@ -78,6 +66,9 @@
     outline: none;
     font-weight: bold;  
 }
+.msgBox{
+    margin-bottom: 80px;
+}
 
 /*Classes de Suporte*/
 .entrouNaSala{
@@ -87,3 +78,6 @@
     background-color: #FFFFFF;
 }
 
+strong{
+    font-weight: bold;
+}
