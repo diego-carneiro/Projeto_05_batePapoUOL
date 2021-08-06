@@ -4,10 +4,8 @@
     flex-wrap: wrap;
     background-color: #E5E5E5;
     width: 100vw;
-    height: 100vh;
-    
+    height: 100vh;   
 }
-
 .barraLateral{
     background-color: crimson;
     width: 0px;
@@ -17,6 +15,11 @@
 .barraLateral:hover{
     width: 70vw;
 }
+*{
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
 /*Topo da Página*/
 .topBar{
     display: flex;
@@ -39,7 +42,13 @@
     height: 30px;   
 }
 /*Corpo da Página*/
+.mensagens{
+    width: 100vw;
+    height: 40px;
+    padding: 12px;
+}
 
+/*Barra de Texto*/
 .textBar{
     display: flex;
     align-items: center;
@@ -67,12 +76,14 @@
     font-family: 'Roboto', sans-serif; 
     border:none;  
     outline: none;
-    font-weight: bold;
-    
+    font-weight: bold;  
 }
-.usertextbox{
-    width: 100vw;
-    height: 40px;
-    background-color: crimson;
-}
+
 /*Classes de Suporte*/
+.entrouNaSala{
+    background-color: #DCDCDC;
+}
+.mensagemPadrao{
+    background-color: #FFFFFF;
+}
+
