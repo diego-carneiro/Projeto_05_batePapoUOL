@@ -55,15 +55,24 @@ function renderizarMensagens(buscarMensagens){
         let txtTime = buscarMensagens.data[i].time;
         let txtNome = buscarMensagens.data[i].from;
         let txtRcvr = buscarMensagens.data[i].to;
+        let txtType = buscarMensagens.data[i].type;
         let txtText = buscarMensagens.data[i].text;
         
-        const msgBuild = `<li class="mensagens"><p><time>(${txtTime})</time><strong class="txtNome"> &nbsp ${txtNome}</strong> &nbsp <strong class="txrRcvr"> ${txtRcvr}: &nbsp</strong> ${txtText}</p></li>`
+        let msgBuild;
+    
+        if(txtType === "status"){
+            msgBuild = `<li class="mensagens entrouNaSala"><p><time>(${txtTime})</time><strong class="txtNome"> &nbsp ${txtNome}</strong> &nbsp <strong class="txrRcvr"> ${txtRcvr}: &nbsp</strong> ${txtText}</p></li>`
+        }else if(txtType === "message"){
+            msgBuild = `<li class="mensagens mensagemPadrao"><p><time>(${txtTime})</time><strong class="txtNome"> &nbsp ${txtNome}</strong> &nbsp <strong class="txrRcvr"> ${txtRcvr}: &nbsp</strong> ${txtText}</p></li>`
 
+        }else if(txtType === "private_message mensagemPrivada"){
+            msgBuild = `<li class="mensagens"><p><time>(${txtTime})</time><strong class="txtNome"> &nbsp ${txtNome}</strong> &nbsp <strong class="txrRcvr"> ${txtRcvr}: &nbsp</strong> ${txtText}</p></li>`
+        }
+        
         msgBox.innerHTML += msgBuild;
         const scrollAuto = document.querySelector('.msgBox');
         scrollAuto.scrollIntoView();
         scrollAuto.scrollIntoView({block: "end"});
-        msgBox.classList.add('mensagemPadrao')
     }    
 }
 
@@ -81,7 +90,7 @@ function enviarMensagem() {
 
     let msgBuild = document.querySelector("input");
     msgBuild.value = "";
-
+    
     const promise = axios.post(msgURL, objetoMensagem);
     promise.then();
   }
