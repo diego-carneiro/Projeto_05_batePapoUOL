@@ -73,9 +73,9 @@ function enviarMensagem() {
     const msgContent = document.querySelector("input").value;
 
     const objetoMensagem = {
-      from: nameCheck,
+      from: nameCheck.name,
       to: "Todos",
-      text: "msgContent",
+      text: msgContent,
       type: "message"
     }
 

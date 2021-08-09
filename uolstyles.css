@@ -1,10 +1,18 @@
 /*Estrutura da Página */
+body{
+    font-family: 'Roboto', sans-serif;
+    word-break: break-word; 
+}
 .container{
     display: flex;
     flex-wrap: wrap;
     background-color: #E5E5E5;
     width: 100vw;
     height: 100vh;  
+}
+.content{
+    width: 100vw;
+    height: calc(100vh - 180px);
 }
 
 /*Topo da Página*/
@@ -47,6 +55,7 @@
     width: 100vw;
     height: 80px;
     bottom: 0;
+    word-break: break-word; 
 }
 .textBox{
     margin-left: 20px;
@@ -78,6 +87,7 @@
     background-color: #DCDCDC;
     margin-bottom: 5px;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    word-break: break-word; 
 }
 .mensagemPadrao{
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
@@ -87,3 +97,4 @@
 strong{
     font-weight: bold;
 }
+
