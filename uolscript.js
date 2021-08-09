@@ -1,6 +1,7 @@
 let inputName;
 let validarNome;
 let msgBox;
+let nameCheck;
 let usertextbox = `<div class="usertextbox"></div>` 
 const guestsURL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/uol/participants";
 const statusURL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/uol/status";
@@ -8,10 +9,10 @@ const msgURL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/uol/messages"
 
 function nomeEntrada(){
     inputName = prompt("Com qual nome deseja se conectar?");
-    let nameCheck = {name: inputName};
+    nameCheck = {name: inputName};
     entrar(nameCheck);
-    renderizarNomes(nameCheck);
- }
+    renderizarNomes(nameCheck); 
+}
 nomeEntrada();
 
 function manterLogado(nameCheck){
@@ -22,6 +23,7 @@ function manterLogado(nameCheck){
 function entrar(nameCheck){
     let promise = axios.post(guestsURL, nameCheck);
     promise.then(statusCheck);
+    setInterval(manterLogado, 5000, nameCheck)
 } 
 function statusCheck(resposta){
     if (resposta.status === 200){
@@ -46,6 +48,7 @@ function renderizarMensagens(buscarMensagens){
 
     msgBox = document.querySelector(".msgBox"); 
     msgBox.innerHTML = "";
+    
 
     for(let i = 0; i < buscarMensagens.data.length ; i++){ 
         
@@ -57,8 +60,28 @@ function renderizarMensagens(buscarMensagens){
         const msgBuild = `<li class="mensagens"><p><time>(${txtTime})</time><strong class="txtNome"> &nbsp ${txtNome}</strong> &nbsp <strong class="txrRcvr"> ${txtRcvr}: &nbsp</strong> ${txtText}</p></li>`
 
         msgBox.innerHTML += msgBuild;
+        const scrollAuto = document.querySelector('.msgBox');
+        scrollAuto.scrollIntoView();
+        scrollAuto.scrollIntoView({block: "end"});
+        msgBox.classList.add('mensagemPadrao')
     }    
 }
 
 let idInterval =  setInterval(buscarMensagens, 3000);
 
+function enviarMensagem() {
+    const msgContent = document.querySelector("input").value;
+
+    const objetoMensagem = {
+      from: nameCheck,
+      to: "Todos",
+      text: "msgContent",
+      type: "message"
+    }
+
+    let msgBuild = document.querySelector("input");
+    msgBuild.value = "";
+
+    const promise = axios.post(msgURL, objetoMensagem);
+    promise.then();
+  }
