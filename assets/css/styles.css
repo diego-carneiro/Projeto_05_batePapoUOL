@@ -1,26 +1,25 @@
-/*Estrutura da Página */
+/*:::::STRUCTURAL:::::*/
 body{
     font-family: 'Roboto', sans-serif;
     word-break: break-word; 
 }
+*{
+    box-sizing: border-box;
+}
 .container{
-    display: flex;
-    flex-wrap: wrap;
     width: 100vw;
-    height: 100vh;
     background-color: #e5e5e5;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05); 
-
 }
 .content{
     width: 100vw;
-    height: calc(100vh - 180px);
+    padding: 80px 0px;
 }
-
-/*Topo da Página*/
-.topBar{
+/*:::::STRUCTURAL END:::::*/
+/*:::::HEADER:::::*/
+.header{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: #FFFFFF;
     width: 100vw;
@@ -28,26 +27,21 @@ body{
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
     position: fixed;
     top: 0;
-}
-.icons{
-    display: flex;
-    width: 90vw;
-    height: 50px;
-    justify-content: space-between;
-    align-items: center;
+    padding: 11px 22px 11px 22px;
 }
 .people{
     width: 42px;
     height: 30px;   
 }
-/*Corpo da Página*/
+/*:::::HEADER END:::::*/
+/*:::::MESSAGE CONTENT:::::*/
 .mensagens{
     width: 100vw;
     padding: 12px;
     margin-bottom: 5px;
 }
-
-/*Barra de Texto*/
+/*:::::MESSAGE CONTENT END:::::*/
+/*:::::FOOTER:::::*/
 .textBar{
     display: flex;
     align-items: center;
@@ -58,14 +52,9 @@ body{
     width: 100vw;
     height: 80px;
     bottom: 0;
-    word-break: break-word; 
-}
-.textBox{
-    margin-left: 20px;
-    margin-right: 20px;
-}
-.send{
-    margin-right: 10px;    
+    word-break: break-word;
+    margin-top: 80px;
+    padding: 18px; 
 }
 #msgtext{
     width: 280px;
@@ -83,7 +72,7 @@ body{
     border:none;  
     outline: none;
 }
-
+/*:::::FOOTER END:::::*/
 /*Classes de Suporte*/
 .entrouNaSala{
     background-color: #DCDCDC;
@@ -95,7 +84,6 @@ body{
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
     background-color: #FFFFFF;
 }
-
 strong{
     font-weight: bold;
 }

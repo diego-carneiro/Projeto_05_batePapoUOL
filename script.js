@@ -3,9 +3,9 @@ let validarNome;
 let msgBox;
 let nameCheck;
 let usertextbox = `<div class="usertextbox"></div>` 
-const guestsURL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/uol/participants";
-const statusURL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/uol/status";
-const msgURL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/uol/messages";
+const guestsURL = "https://mock-api.driven.com.br/api/v4/uol/participants ";
+const statusURL = "https://mock-api.bootcamp.respondeai.com.br/api/v4/uol/status";
+const msgURL = "https://mock-api.bootcamp.respondeai.com.br/api/v4/uol/messages";
 
 function nomeEntrada(){
     inputName = prompt("Com qual nome deseja se conectar?");
@@ -15,16 +15,12 @@ function nomeEntrada(){
 }
 nomeEntrada();
 
-function manterLogado(nameCheck){
-    let promise = axios.post(statusURL, nameCheck);
-    promise.then(statusCheck);
-}
-
 function entrar(nameCheck){
     let promise = axios.post(guestsURL, nameCheck);
     promise.then(statusCheck);
     setInterval(manterLogado, 5000, nameCheck)
 } 
+
 function statusCheck(resposta){
     if (resposta.status === 200){
         const promise = axios.get(guestsURL);
@@ -33,6 +29,12 @@ function statusCheck(resposta){
         alert("Entre com outro nome ou tente novamente");
     }
 }
+
+function manterLogado(nameCheck){
+    let promise = axios.post(statusURL, nameCheck);
+    promise.then(statusCheck);
+}
+
 function renderizarNomes(buscarMensagens){
     console.log(buscarMensagens);
     let addName = document.querySelector(".msgBox");
